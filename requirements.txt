@@ -1,0 +1,5 @@
+numpy
+pandas
+pandas-datareader
+matplotlib
+mpl-finance
