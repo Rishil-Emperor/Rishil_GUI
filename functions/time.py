@@ -7,6 +7,7 @@ with open('time_zones.json', 'r') as f:                                         
 
 # This is where the GUI (PyQt5) code will be.
 
+today = datetime.datetime.now()                                                                                         # Assigning current date
 today_date = datetime.date.today()                                                                                      # Assigning current date to variable 'today_date'.
 today_year = today_date.year                                                                                            # Assigning current year to variable 'today_year'.
 month = today_date.month                                                                                                # Assigning current month (number form) to variable 'month'.
@@ -38,22 +39,23 @@ days_of_the_week = {                                                            
 }
 today_day_of_week = days_of_the_week[str(today_date.weekday())]                                                         # Assigning current day of the week from 'days_of_the_week' dictionary to variable 'today_day_of_week'.
 
-print(f'Hello Rishil. It is {today_day_of_week}, {today_month} {today_day}, {today_year}.')
+date_and_time_message = f'Hello Rishil. It is {today_day_of_week}, {today_month} {today_day}, {today_year}.'            # date_and_time_message is a string that gives day of week, month, day, and year.
 
-if month > 4 or today_month == 4 and today_day > 25:                                                                    # If my birthday has already passed this year...
-    birthday_year = today_year + 1                                                                                      # birthday_year will be set for next year.
-else:                                                                                                                   # If my birthday has not passed this year...
-    birthday_year = today_year                                                                                          # birthday_year will be set for this year.
+def countdowns():
+    if month > 4 or today_month == 4 and today_day > 25:                                                                # If my birthday has already passed this year...
+        birthday_year = today_year + 1                                                                                  # birthday_year will be set for next year.
+    else:                                                                                                               # If my birthday has not passed this year...
+        birthday_year = today_year                                                                                      # birthday_year will be set for this year.
 
-birthday = datetime.date(birthday_year, 4, 25)                                                                          # Set my birthday as April 25th, birthday_year as a variable called birthday.
-days_until_birthday = birthday - today_date                                                                             # days_until_birthday is a timedelta showing current day to birthday.
-untilBirthday = days_until_birthday.days                                                                                # untilBirthday is a variable showing number of days left from the current day to my birthday.
+    birthday = datetime.date(birthday_year, 4, 25)                                                                      # Set my birthday as April 25th, birthday_year as a variable called birthday.
+    days_until_birthday = birthday - today_date                                                                         # days_until_birthday is a timedelta showing current day to birthday.
+    untilBirthday = days_until_birthday.days                                                                            # untilBirthday is a variable showing number of days left from the current day to my birthday.
 
-if month == 12 and today_day > 25:                                                                                      # If Christmas has already passed this year...
-    christmas_year = today_year + 1                                                                                     # christmas_year will be set for next year.
-else:                                                                                                                   # If Christmas has not passed this year...
-    christmas_year = today_year                                                                                         # christmas_year will be set for this year.
+    if month == 12 and today_day > 25:                                                                                  # If Christmas has already passed this year...
+        christmas_year = today_year + 1                                                                                 # christmas_year will be set for next year.
+    else:                                                                                                               # If Christmas has not passed this year...
+        christmas_year = today_year                                                                                     # christmas_year will be set for this year.
 
-christmas = datetime.date(christmas_year, 12, 25)                                                                       # Set Christmas as December 25th, christmas_year as a variable called christmas.
-days_until_christmas = christmas - today_date                                                                           # days_until_christmas is a timedelta showing current day to Christmas.
-untilChristmas = days_until_christmas.days                                                                              # untilChristmas is a variable showing number of days left from the current day to Christmas.
+    christmas = datetime.date(christmas_year, 12, 25)                                                                   # Set Christmas as December 25th, christmas_year as a variable called christmas.
+    days_until_christmas = christmas - today_date                                                                       # days_until_christmas is a timedelta showing current day to Christmas.
+    untilChristmas = days_until_christmas.days                                                                          # untilChristmas is a variable showing number of days left from the current day to Christmas.
